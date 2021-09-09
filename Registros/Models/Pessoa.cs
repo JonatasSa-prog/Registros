@@ -11,10 +11,31 @@ namespace Registros.Models
     {
 
         public Guid Id { get; set; }
+
+        [Required(ErrorMessage = "{0} Required")]
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "{0} Size should be between {2} and {1}")]
+        [Display(Name = "Nome:")]
         public String Name { get; set; }
+
+        [Required(ErrorMessage = "{0} Required")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "{0} Size should be between {2} and {1}")]
+        [Display(Name = "CPF:")]
         public String CPF { get; set; }
+
+        [Required(ErrorMessage = "{0} Required")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "{0} Size should be between {2} and {1}")]
+        [Display(Name = "Telefone:")]
         public String Tel { get; set; }
+
+        [Required(ErrorMessage = "{0} Required")]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "E-mail:")]
         public String Email { get; set; }
+      
+        [Required(ErrorMessage = "{0} Required")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [Display(Name = "Data de Nascimento:")]
         public DateTime Nascimento { get; set; }
 
 
